@@ -56,9 +56,9 @@ createBsseqObject <- function(
             pos = as.numeric(dt[, pos_col]), 
             M = as.matrix(dt[, m_col]), 
             Cov = as.matrix(dt[, cov_col]), 
-            sampleNames = sample_names[i])
+            sampleNames = sample_names[i],
+            trans = plogis) # ?
     }
-    
-    bs_object <- do.call("combine", c(bs_object_list))
+    bs_object <- combineList(bs_object_list)
     return(bs_object)
 }
